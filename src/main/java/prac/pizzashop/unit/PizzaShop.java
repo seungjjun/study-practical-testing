@@ -16,6 +16,16 @@ public class PizzaShop {
         pizzas.add(pizza);
     }
 
+    public void add(Pizza pizza, int count) {
+        if (count <= 0) {
+            throw new IllegalArgumentException("피자는 1개 이상 주문해야 합니다.");
+        }
+
+        for (int i = 0; i < count; i++) {
+            pizzas.add(pizza);
+        }
+    }
+
     public void remove(Pizza pizza) {
         pizzas.remove(pizza);
     }
