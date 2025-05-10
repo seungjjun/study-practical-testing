@@ -1,5 +1,6 @@
 package prac.pizzashop.spring.domain.product;
 
+import java.util.List;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -13,4 +14,7 @@ public enum ProductType {
 
     private final String text;
 
+    public static boolean containsStockType(ProductType type) {
+        return List.of(PIZZA, DRINK).contains(type);
+    }
 }
