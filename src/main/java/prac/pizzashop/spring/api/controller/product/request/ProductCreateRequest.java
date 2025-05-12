@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Positive;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import prac.pizzashop.spring.api.service.product.request.ProductCreateServiceRequest;
 import prac.pizzashop.spring.domain.product.Product;
 import prac.pizzashop.spring.domain.product.ProductSellingStatus;
 import prac.pizzashop.spring.domain.product.ProductType;
@@ -37,6 +38,15 @@ public class ProductCreateRequest {
     public Product toEntity(String productNumber) {
         return Product.builder()
             .productNumber(productNumber)
+            .type(type)
+            .sellingStatus(sellingStatus)
+            .name(name)
+            .price(price)
+            .build();
+    }
+
+    public ProductCreateServiceRequest toServiceRequest() {
+        return ProductCreateServiceRequest.builder()
             .type(type)
             .sellingStatus(sellingStatus)
             .name(name)

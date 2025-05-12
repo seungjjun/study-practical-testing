@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import prac.pizzashop.spring.api.controller.order.request.OrderCreateRequest;
+import prac.pizzashop.spring.api.service.order.request.OrderCreateServiceRequest;
 import prac.pizzashop.spring.api.service.order.response.OrderResponse;
 import prac.pizzashop.spring.domain.order.Order;
 import prac.pizzashop.spring.domain.order.OrderRepository;
@@ -27,7 +28,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final StockRepository stockRepository;
 
-    public OrderResponse createOrder(OrderCreateRequest request, LocalDateTime registeredDateTime) {
+    public OrderResponse createOrder(OrderCreateServiceRequest request, LocalDateTime registeredDateTime) {
         List<String> productNumbers = request.getProductNumbers();
         List<Product> products = findProductsBy(productNumbers);
 

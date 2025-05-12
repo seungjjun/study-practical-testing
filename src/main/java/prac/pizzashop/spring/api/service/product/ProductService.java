@@ -5,6 +5,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import prac.pizzashop.spring.api.controller.product.request.ProductCreateRequest;
+import prac.pizzashop.spring.api.service.product.request.ProductCreateServiceRequest;
 import prac.pizzashop.spring.api.service.product.response.ProductResponse;
 import prac.pizzashop.spring.domain.product.Product;
 import prac.pizzashop.spring.domain.product.ProductRepository;
@@ -17,7 +18,7 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public ProductResponse createProduct(ProductCreateRequest request) {
+    public ProductResponse createProduct(ProductCreateServiceRequest request) {
         String nextProductNumber = createNextProductNumber();
 
         Product product = request.toEntity(nextProductNumber);
